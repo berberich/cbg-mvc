@@ -1,16 +1,6 @@
 ﻿@{
         Layout = null;
 
-        var seriesTitle = "The Amazing Spider-Man";
-        var issueNumber = 700;
-        var description = "Final issue!";
-        var artists = new string[] {
-        "Script: Dan Slott",
-        "Pencils: Humberto Ramos",
-        "Inks: Victor Olazaba",
-        "Colors: Edgar Delgado",
-        "Letters: Chris Eliopoulos"
-    };
 }
 
 <!DOCTYPE html>
@@ -22,16 +12,16 @@
 </head>
 <body>
     <div>
-        <h1>@seriesTitle</h1>
-        <h2>Issue #@issueNumber</h2>
+        <h1>@ViewBag.SeriesTitle</h1>
+        <h2>Issue #@ViewBag.IssueNumber</h2>
         <h3>Description</h3>
-        <div><p>@description</p></div>
-        @if (artists.Length > 0)
+        <div><p>@ViewBag.Description</p></div>
+        @if (ViewBag.Artists.Length > 0)
         {
             <h3>Artists:</h3>
             <div>
                 <ul>
-                    @foreach (var artist in artists)
+                    @foreach (var artist in ViewBag.Artists)
                     {
                         <li>@artist</li>
                     }
