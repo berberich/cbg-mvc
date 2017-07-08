@@ -4,22 +4,29 @@
     ViewBag.Title = Model.DisplayText;
 
 }
-<div>
-    <h1>@Model.SeriesTitle</h1>
-    <h2>Issue #@Model.IssueNumber</h2>
-    <h3>Description</h3>
-    <div><p>@Model.DescriptionHtml</p></div>
-    @if (Model.Artists.Length > 0)
-    {
-    <h3>Artists:</h3>
-    <div>
-        <ul>
-            @foreach (var artist in Model.Artists)
+<div class="row">
+    <div class="col-md-8">
+        <div class="well">
+            <h1>@Model.SeriesTitle</h1>
+            <h2>Issue #@Model.IssueNumber</h2>
+            <h5>Favorite: @(Model.Favorite ? "Yes" : "No")</h5>
+            <h3>Description</h3>
+            <div><p>@Model.DescriptionHtml</p></div>
+            @if (Model.Artists.Length > 0)
             {
-                <li>@artist.Role: @artist.Name</li>
+                <h3>Artists:</h3>
+                <div>
+                    <ul>
+                        @foreach (var artist in Model.Artists)
+                        {
+                            <li><strong>@artist.Role:</strong> @artist.Name</li>
+                        }
+                    </ul>
+                </div>
             }
-        </ul>
+        </div>
     </div>
-    }
-                
+    <div class="col-md-4">
+        <img src="https://unsplash.it/200/300/?random" />
+    </div>
 </div>
